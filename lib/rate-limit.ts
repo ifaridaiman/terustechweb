@@ -1,0 +1,13 @@
+const WINDOW_MS = 60_000;
+const MAX_REQUESTS = 3;
+
+const hits = new Map<string, number[]>();
+
+/** In-memory, per-process rate limit -- enough to blunt basic form spam. */
+export function isRateLimited(key: string): boolean {
+  const now = Date.now();
+  const recent = (hits.get(key) ?? []).filter((timestamp) => now - timestamp < WINDOW_MS);
+  recent.push(now);
+  hits.set(key, recent);
+  return recent.length > MAX_REQUESTS;
+}
