@@ -1,5 +1,8 @@
 import { notFound } from "next/navigation";
 
+import { HeroTimeline } from "@/components/home/HeroTimeline";
+import { DrawBar } from "@/components/motion/DrawBar";
+import { Reveal, RevealGroup } from "@/components/motion/Reveal";
 import { Accordion, AccordionItem } from "@/components/ui/Accordion";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
@@ -195,6 +198,63 @@ export default function DesignSystemPage() {
           <ThemePanel theme="light" />
           <ThemePanel theme="dark" />
         </div>
+
+        <section className="mt-9">
+          <h2 className="mb-4 font-display text-h2">Motion</h2>
+
+          <div className="mb-6">
+            <p className="mb-3 text-small text-ink-muted">
+              Reveal — a single element, fades up 16px into view.
+            </p>
+            <Reveal>
+              <Card variant="surface" className="mb-4">
+                <p className="font-display text-h3">Fades up once, on scroll into view</p>
+              </Card>
+            </Reveal>
+
+            <p className="mb-3 text-small text-ink-muted">
+              RevealGroup — siblings stagger in 70ms apart, scroll down and back up to replay.
+            </p>
+            <RevealGroup className="grid gap-4 sm:grid-cols-3">
+              <Card variant="surface">
+                <Eyebrow>01</Eyebrow>
+                <p className="mt-2 font-display text-h3">Lean</p>
+              </Card>
+              <Card variant="surface">
+                <Eyebrow>02</Eyebrow>
+                <p className="mt-2 font-display text-h3">Agile</p>
+              </Card>
+              <Card variant="surface">
+                <Eyebrow>03</Eyebrow>
+                <p className="mt-2 font-display text-h3">Open</p>
+              </Card>
+            </RevealGroup>
+          </div>
+
+          <div className="mb-9">
+            <p className="mb-3 text-small text-ink-muted">DrawBar — mount-triggered (hero headline style)</p>
+            <div className="rounded-lg bg-night p-6">
+              <p className="relative inline-block font-display text-h1 text-on-night">
+                30 days
+                <DrawBar
+                  trigger="mount"
+                  delay={0.4}
+                  duration={0.9}
+                  className="absolute -bottom-1 h-1 w-full bg-accent"
+                />
+              </p>
+            </div>
+          </div>
+
+          <div>
+            <p className="mb-3 text-small text-ink-muted">
+              HeroTimeline — the accent progress line draws, holds, fades and loops (mascot-free)
+            </p>
+            <div className="rounded-lg bg-night p-6">
+              <HeroTimeline />
+            </div>
+          </div>
+        </section>
       </Container>
     </main>
   );
