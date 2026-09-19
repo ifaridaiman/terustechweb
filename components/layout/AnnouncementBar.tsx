@@ -4,7 +4,11 @@ import { announcementBar } from "@/content/site";
 
 export function AnnouncementBar() {
   return (
-    <div className="bg-accent-tint py-2 text-center text-small text-ink">
+    <div
+      role="region"
+      aria-label="Announcement"
+      className="bg-accent-tint py-2 text-center text-small text-ink"
+    >
       {announcementBar.text}{" "}
       <Link
         href={announcementBar.href}

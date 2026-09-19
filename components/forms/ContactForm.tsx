@@ -63,7 +63,7 @@ export function ContactForm() {
 
   return (
     <form action={formAction} noValidate className="space-y-5">
-      <div className="absolute left-[-9999px]" aria-hidden="true">
+      <div className="sr-only" aria-hidden="true">
         <label htmlFor="website">Leave this field blank</label>
         <input id="website" name="website" type="text" tabIndex={-1} autoComplete="off" />
       </div>

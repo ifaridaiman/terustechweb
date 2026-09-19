@@ -22,12 +22,12 @@ export default function ContactPage() {
 
       <section className="bg-surface py-8 md:py-9">
         <Container>
-          <div className="grid gap-10 lg:grid-cols-12">
-            <Reveal className="lg:col-span-7">
+          <div className="grid gap-10 lg:grid-cols-[7fr_5fr]">
+            <Reveal className="min-w-0">
               <ContactForm />
             </Reveal>
 
-            <Reveal delay={0.1} className="lg:col-span-5">
+            <Reveal delay={0.1} className="min-w-0">
               <h2 className="font-display text-h2">{contactPage.whatsNext.heading}</h2>
               <ol className="mt-4 space-y-5">
                 {contactPage.whatsNext.steps.map((step, index) => (

@@ -60,7 +60,7 @@ export function HowWeDoIt() {
                       <Icon className="size-5" strokeWidth={1.75} aria-hidden="true" />
                     </span>
                   )}
-                  <div>
+                  <div className="min-w-0">
                     <h3 className="font-display text-h3">{tile.title}</h3>
                     <p className="mt-1 text-body text-ink-muted">{tile.body}</p>
                   </div>
