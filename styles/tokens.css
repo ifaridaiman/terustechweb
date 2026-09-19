@@ -1,0 +1,88 @@
+/**
+ * Design tokens — section 5 of the Terus Tech design system.
+ * Light is the default theme. Dark applies via [data-theme="dark"],
+ * and also via prefers-color-scheme when the visitor hasn't chosen.
+ */
+
+:root {
+  --color-paper: #f3efe6;
+  --color-surface: #fbf9f4;
+  --color-ink: #121212;
+  --color-ink-muted: #5c5a52;
+  --color-line: #d8d1c2;
+  --color-night: #121212;
+  --color-on-night: #f3efe6;
+  --color-accent: #0b7a70;
+  --color-on-accent: #ffffff;
+  --color-accent-tint: #d6ebe7;
+  --color-danger: #b42318;
+
+  /* Spacing — multiples of 4px */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 96px;
+  --space-10: 128px;
+
+  /* Radius */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-full: 999px;
+
+  /* Layout */
+  --container-max: 1200px;
+  --container-narrow: 720px;
+  --header-height: 72px;
+  --header-height-scrolled: 56px;
+  --rule-heavy: 8px;
+  --rule-hairline: 1px;
+
+  /* Shadows */
+  --shadow-lift: 0 16px 32px -16px rgba(18, 18, 18, 0.28);
+
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --color-paper: #111211;
+    --color-surface: #1a1c1a;
+    --color-ink: #f3efe6;
+    --color-ink-muted: #a9a79d;
+    --color-line: #2f322f;
+    --color-night: #0a0b0a;
+    --color-on-night: #f3efe6;
+    --color-accent: #2dd4bf;
+    --color-on-accent: #06201c;
+    --color-accent-tint: #1b4d45;
+    --color-danger: #f97066;
+
+    --shadow-lift: 0 16px 32px -16px rgba(0, 0, 0, 0.7);
+
+    color-scheme: dark;
+  }
+}
+
+:root[data-theme="dark"] {
+  --color-paper: #111211;
+  --color-surface: #1a1c1a;
+  --color-ink: #f3efe6;
+  --color-ink-muted: #a9a79d;
+  --color-line: #2f322f;
+  --color-night: #0a0b0a;
+  --color-on-night: #f3efe6;
+  --color-accent: #2dd4bf;
+  --color-on-accent: #06201c;
+  --color-accent-tint: #1b4d45;
+  --color-danger: #f97066;
+
+  --shadow-lift: 0 16px 32px -16px rgba(0, 0, 0, 0.7);
+
+  color-scheme: dark;
+}
