@@ -7,11 +7,13 @@ import { Chip } from "@/components/ui/Chip";
 import { Container } from "@/components/ui/Container";
 import { insightsPage } from "@/content/pages/insights";
 import { getPublishedArticles } from "@/lib/mdx";
+import { buildMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildMetadata({
   title: insightsPage.meta.title,
   description: insightsPage.meta.description,
-};
+  path: "/insights",
+});
 
 export default async function InsightsPage() {
   const articles = await getPublishedArticles();

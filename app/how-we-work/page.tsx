@@ -7,11 +7,13 @@ import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { howWeWorkPage } from "@/content/pages/how-we-work";
+import { buildMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildMetadata({
   title: howWeWorkPage.meta.title,
   description: howWeWorkPage.meta.description,
-};
+  path: "/how-we-work",
+});
 
 export default function HowWeWorkPage() {
   return (

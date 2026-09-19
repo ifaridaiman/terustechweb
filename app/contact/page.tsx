@@ -7,11 +7,13 @@ import { Container } from "@/components/ui/Container";
 import { Placeholder } from "@/components/ui/Placeholder";
 import { contactPage } from "@/content/pages/contact";
 import { siteConfig } from "@/content/site";
+import { buildMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildMetadata({
   title: contactPage.meta.title,
   description: contactPage.meta.description,
-};
+  path: "/contact",
+});
 
 export default function ContactPage() {
   return (

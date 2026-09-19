@@ -5,11 +5,13 @@ import { PageHero } from "@/components/marketing/PageHero";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { customSoftwarePage } from "@/content/pages/custom-software";
+import { buildMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildMetadata({
   title: customSoftwarePage.meta.title,
   description: customSoftwarePage.meta.description,
-};
+  path: "/services/custom-software",
+});
 
 export default function CustomSoftwarePage() {
   return (

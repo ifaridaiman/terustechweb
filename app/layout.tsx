@@ -4,18 +4,19 @@ import { AnnouncementBar } from "@/components/layout/AnnouncementBar";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
 import { ibmPlexMono, ibmPlexSans, spaceGrotesk } from "@/lib/fonts";
+import { DEFAULT_DESCRIPTION, DEFAULT_TITLE, SITE_NAME, SITE_URL } from "@/lib/seo";
+import { organizationJsonLd } from "@/lib/structured-data";
 import { themeInitScript } from "@/lib/theme-script";
 
 import "./globals.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://terustech.my"),
+  metadataBase: new URL(SITE_URL),
   title: {
-    default: "Terus Tech | Custom software, first phase live in 30 days",
-    template: "%s | Terus Tech",
+    default: DEFAULT_TITLE,
+    template: `%s | ${SITE_NAME}`,
   },
-  description:
-    "First phase of your software live in 30 days. Lean, agile custom software, managed services and GIS from Puncak Alam, Malaysia.",
+  description: DEFAULT_DESCRIPTION,
 };
 
 export default function RootLayout({
@@ -31,6 +32,10 @@ export default function RootLayout({
     >
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd()) }}
+        />
       </head>
       <body>
         <a

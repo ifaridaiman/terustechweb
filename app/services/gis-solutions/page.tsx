@@ -6,11 +6,13 @@ import { Reveal, RevealGroup } from "@/components/motion/Reveal";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { gisSolutionsPage } from "@/content/pages/gis-solutions";
+import { buildMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildMetadata({
   title: gisSolutionsPage.meta.title,
   description: gisSolutionsPage.meta.description,
-};
+  path: "/services/gis-solutions",
+});
 
 export default function GisSolutionsPage() {
   return (

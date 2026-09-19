@@ -6,6 +6,8 @@ import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { getAllCaseStudies, getCaseStudy } from "@/lib/mdx";
+import { buildMetadata } from "@/lib/seo";
+import { breadcrumbJsonLd } from "@/lib/structured-data";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -27,7 +29,12 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const { slug } = await params;
   const study = await loadVisibleCaseStudy(slug);
   if (!study) return {};
-  return { title: study.frontmatter.title, description: study.frontmatter.summary };
+  return buildMetadata({
+    title: study.frontmatter.title,
+    description: study.frontmatter.summary,
+    path: `/work/${slug}`,
+    noIndex: !study.frontmatter.published,
+  });
 }
 
 export default async function CaseStudyPage({ params }: PageProps) {
@@ -36,9 +43,14 @@ export default async function CaseStudyPage({ params }: PageProps) {
   if (!study) notFound();
 
   const { content, frontmatter } = study;
+  const breadcrumbs = breadcrumbJsonLd([
+    { name: "Work", path: "/work" },
+    { name: frontmatter.title, path: `/work/${slug}` },
+  ]);
 
   return (
     <main id="main">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbs) }} />
       <section className="bg-paper py-8 md:py-9">
         <Container className="max-w-container-narrow">
           <Reveal>

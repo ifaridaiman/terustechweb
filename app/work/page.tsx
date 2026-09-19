@@ -7,11 +7,13 @@ import { Container } from "@/components/ui/Container";
 import { workPage } from "@/content/pages/work";
 import { WorkGrid } from "@/components/work/WorkGrid";
 import { getPublishedCaseStudies } from "@/lib/mdx";
+import { buildMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildMetadata({
   title: workPage.meta.title,
   description: workPage.meta.description,
-};
+  path: "/work",
+});
 
 export default async function WorkPage() {
   const caseStudies = await getPublishedCaseStudies();

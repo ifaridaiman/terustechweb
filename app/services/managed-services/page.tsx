@@ -7,11 +7,13 @@ import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { Placeholder } from "@/components/ui/Placeholder";
 import { managedServicesPage } from "@/content/pages/managed-services";
+import { buildMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildMetadata({
   title: managedServicesPage.meta.title,
   description: managedServicesPage.meta.description,
-};
+  path: "/services/managed-services",
+});
 
 export default function ManagedServicesPage() {
   return (

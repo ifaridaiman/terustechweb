@@ -9,11 +9,13 @@ import { Chip } from "@/components/ui/Chip";
 import { Container } from "@/components/ui/Container";
 import { services } from "@/content/home";
 import { servicesPage } from "@/content/pages/services";
+import { buildMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildMetadata({
   title: servicesPage.meta.title,
   description: servicesPage.meta.description,
-};
+  path: "/services",
+});
 
 const icons = [Code2, ServerCog, Map];
 

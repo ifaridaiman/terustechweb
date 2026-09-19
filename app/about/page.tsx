@@ -7,11 +7,13 @@ import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { aboutPage } from "@/content/pages/about";
 import { team } from "@/content/home";
+import { buildMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildMetadata({
   title: aboutPage.meta.title,
   description: aboutPage.meta.description,
-};
+  path: "/about",
+});
 
 export default function AboutPage() {
   return (
