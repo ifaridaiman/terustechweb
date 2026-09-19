@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
 
+import { AnnouncementBar } from "@/components/layout/AnnouncementBar";
+import { Footer } from "@/components/layout/Footer";
+import { Header } from "@/components/layout/Header";
 import { ibmPlexMono, ibmPlexSans, spaceGrotesk } from "@/lib/fonts";
 import { themeInitScript } from "@/lib/theme-script";
 
@@ -36,7 +39,10 @@ export default function RootLayout({
         >
           Skip to content
         </a>
+        <AnnouncementBar />
+        <Header />
         {children}
+        <Footer />
       </body>
     </html>
   );
